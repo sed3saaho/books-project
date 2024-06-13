@@ -20,3 +20,14 @@ def add_book(session):
     session.commit()
     print(f"Book added successfully!")
 
+def add_author(session):
+    clear_screen()
+    print("Add a New Author")
+    print("=================")
+    name = validate_input("Enter the name of the author: ", lambda x: len(x) > 0)
+
+    author = Author(name=name)
+    session.add(author)
+    session.commit()
+    print(f"Author added successfully!")
+
