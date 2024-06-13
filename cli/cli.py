@@ -31,3 +31,14 @@ def add_author(session):
     session.commit()
     print(f"Author added successfully!")
 
+def display_books(session):
+    clear_screen()
+    print("List of Books")
+    print("==============")
+    books = session.query(Book).all()
+    if not books:
+        print("No books available.")
+    else:
+        for book in books:
+            print(f"Title: {book.title}, Author: {book.author.name}")
+
